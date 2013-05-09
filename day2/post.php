@@ -2,11 +2,11 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title> </title>
+<title>Post Method Example </title>
 </head>
 
 <body>
-	<form method="get" action="get.php">
+	<form method="post" action="post.php">
 		<label for="name">What is your name?</label>
 		<input type="text" name="name" id="name">
 
@@ -20,14 +20,14 @@
 
 	<?php
 	//only show the message if the form was submitted
-	if( $_GET['did_submit'] == 1 ){
+	if( $_POST['did_submit'] == 1 ){
 		/*echo 'Good Morning, ';
-		echo $_GET['name']; 
+		echo $_POST['name']; 
 		echo '. ';
-		echo $_GET ['breakfast'];
+		echo $_POST ['breakfast'];
 		echo ' sounds delicious';*/
 	//just a string display instead of 5 lines above
-		echo 'Good Morning, '. $_GET['name']. '. '. $_GET ['breakfast']. ' sounds delicious';
+		echo 'Good Morning, '. $_POST['name']. '. '. $_POST ['breakfast']. ' sounds delicious';
 	}
 	?>
 </body>
