@@ -64,14 +64,14 @@ if (!$_SESSION['logged_in'] ) {
 	?>
 	<hr> </hr>
 	<form method="post" action="login_cookie_sessions.php">
-		<label for="username">Username:</label>
-		<input type="text" name="username" id="username">
+		<label class="text" for="username">Username</label>
+		<input class="input" type="text" name="username" id="username">
 
-		<label for="password">Password</label>
-		<input type="password" name="password" id="password">
+		<label class="text" for="password">Password</label>
+		<input class="input" type="password" name="password" id="password">
 
-		<input type="submit" value="Log In">
-		<input type="hidden" name="did_login" value="1">
+		<input class="button" type="submit" value="Log In">
+		<input  type="hidden" name="did_login" value="1">
 
 	</form>
 

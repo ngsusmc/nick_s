@@ -11,6 +11,7 @@ h1 {
 	text-align: center;
 	font-size: 35px;
 	font-weight: bold;
+	font-family: verdana;
 }
 
 hr {
@@ -30,14 +31,28 @@ form {
 	border: 2.5px solid #000;
 }
 
-label {
+.text {
 	display:block;
+	padding: 7px 0 2px 0;
+	
+
 }
 
-input {
+.input {
+	display:block;
+	width: 150px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
 
-}	
-
+}
+	
 .button {
 	display: block;
+	padding: 5px 10px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+
 }
+
