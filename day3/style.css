@@ -1,0 +1,43 @@
+h1 {
+
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 100px;
+	background-color: #D0D0D0;
+	display:block;
+	width: 225px;
+	padding: 10px;
+	border: 2.5px solid #000;
+	text-align: center;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+hr {
+
+	margin-left:auto;
+	margin-right:auto;
+	width:230px;
+	border: 3px groove #000;
+}
+
+form {
+	background-color: #D0D0D0;
+	width: 225px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	border: 2.5px solid #000;
+}
+
+label {
+	display:block;
+}
+
+input {
+
+}	
+
+.button {
+	display: block;
+}
