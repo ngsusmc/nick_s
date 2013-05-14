@@ -7,20 +7,28 @@ $correct_password = 'password';
 
 //if the form was submitted, try to log them in
 if($_POST['did_login'] == 1 ){
-	//extract the values the user typed in
+	//extract the values the user typed in and (sanitize)
 	//this is a shortcut variable set up 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
+	$username = strip_tags(trim($_POST['username']));/*Trim is killing white space, strip_tags removes html and php language*/
+	$password = strip_tags(trim($_POST['password']));
 
-	//comparing username and password with what they typed in, if matched log them in
-	if($username == $correct_username AND $password == $correct_password){
-		//use cookies and sessions to remember the user
-		$_SESSION['logged_in'] = 1;
-		setcookie('logged_in', 1, time() + 60 * 10 * 24);
+	//check to see if minimum lenths are met (validation)
+	if ( strlen($username) >= 5 AND strlen($password) >=5 ) {
+		
+	
+
+		//comparing username and password with what they typed in, if matched log them in
+		if($username == $correct_username AND $password == $correct_password){
+			//use cookies and sessions to remember the user
+			$_SESSION['logged_in'] = 1;
+			setcookie('logged_in', 1, time() + 60 * 10 * 24);
+		}else{
+			$error = 1;
+		}
 	}else{
+		//username or pass too short
 		$error = 1;
 	}
-
 }
 //if the user is trying to log out, unset and destroy the session and cookies
 if ($_GET['action'] == 'logout' ) {
