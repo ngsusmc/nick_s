@@ -16,7 +16,7 @@ $newsletter = 'NO!';
 endif;
 
 //get ready to send mail - set up mail() parameters
-$to = 'melissacabral@gmail.com, mcabral@platt.edu';
+$to = 'ngsusmc@gmail.com';
 $subject = 'Contact form from wp310 class demo';
 
 $body = "Name: $name \n";
