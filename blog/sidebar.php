@@ -21,7 +21,8 @@
 		<?php 
 		//from the list of results, go through each now, one at a time
 		while( $row_latest = $result_latest->fetch_assoc() ): ?>
-		<li><a href="#"><?php echo $row_latest['title']; ?></a></li>
+		<li><a href="index.php?page=single&amp;post_id=<?php echo $row_latest['post_id']; ?>">
+			<?php echo $row_latest['title']; ?></a></li>
 		<?php endwhile; ?>
 	</ul>
 <?php endif; ?>
@@ -64,4 +65,6 @@
 		<li><a href="#"><?php echo $row_link['title']; ?></a></li>
 		<?php endwhile; ?>
 	</ul>
+<hr>
+	<h2 id="rss"><a href="rss.php">Subscribe to Feed</a></h2>
 <?php endif; ?>

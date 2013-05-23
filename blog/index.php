@@ -1,55 +1,48 @@
-<?php require('db_connect.php'); ?>
+<?php require('db_connect.php'); 
+include_once('functions.php');?>
 
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
 <title>Thy Blog</title>
-<link rel="stylesheet" type="text/css" href="css/html5reset.css" />
+
 <link rel="stylesheet" type="text/css" href="css/format.css" />
-
-
+<link href='http://fonts.googleapis.com/css?family=Shojumaru|Titillium+Web:300|Germania+One' rel='stylesheet' type='text/css'>
+<link rel="alternate" type="application/rss+xml" href="http://localhost/nick_s/blog/rss.php" />
 </head>
 <body>
 <div id="container">
 	<header>
 		<h1>Thy Blog</h1>
+		<nav>
+			<ul>
+				<li><a href="index.php">Home</a></li>
+				<li><a href="index.php?page=blog">Blog</a></li>
+				<li><a href="index.php?page=links">Links</a></li>
+			</ul>
+		</nav>
 	</header>
 
 	<main>
-
-		<?php 
-		//set up a query to get the latest two post that are published
-		$query = 'SELECT title, body, date,category_id, post_id
-					FROM posts
-					WHERE is_public = 1
-					ORDER BY date DESC
-					LIMIT 2';
-		//run it and check to make sure the result contains posts
-		if ($result = $db->query($query)):
-
-		?>
-
-		<h2>Most Recent Post:</h2>
-
-		<?php 
-		//loop through the list of results 
-		while( $row = $result->fetch_assoc() ):
-		?>
-
-		<article class="post">
-			<h3><?php echo $row['title']; ?></h3>
-			<div class="postmeta">Posted on <?php echo $row['date']; ?> | in the category <?php echo $row['name']; ?></div>
-			<p><?php echo $row['body']; ?></p>
-		</article>
-
-		<?php 
-		endwhile;
-		?>
-
-			<?php else: ?>
-				<h2>No Posts to Show</h2>
-			<?php endif; ?>
+		<?php
+		//logic to load the correct page contents.
+		//URI will look like domain.com/index.php?page= something (blog, home, ...)
+		switch( $_GET['page'] ){
+			case 'blog':
+				include('content_blog.php' );
+			break;
+			case 'links':
+				include('content_links.php' );
+			break;
+			case 'single':
+				include('content_single.php' );
+			break;
+			default:
+				include('content_home.php'); 
+		}
+			?>
+		 
 	</main>
 
 	<aside>
